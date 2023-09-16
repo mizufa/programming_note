@@ -1,0 +1,16 @@
+<h1>Public::Posts#new</h1>
+
+<div class="container">
+  <%= form_with model: @post, method: :post do |f| %>
+  <div class="row">
+    <div class="col-auto">
+      <div>
+        <%= f.text_field :title, :size=>"50", :placeholder => "タイトルを入力してください" %> <!--投稿タイトル-->
+      </div><br />
+      <div>
+        <%= f.submit '投稿する', class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
