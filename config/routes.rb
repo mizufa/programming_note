@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   namespace :admin do #管理者
     resources :posts, only: [:index, :show, :destroy] #投稿機能用
     resources :customers, only: [:index, :show, :edit, :update] #会員機能用
-    resources :genres, only: [:index, :new, :create, :edit, :update] #ジャンル機能用
+    resources :genres, only: [:index, :create, :edit, :update] #ジャンル機能用
   end
 
   scope module: :public do #会員

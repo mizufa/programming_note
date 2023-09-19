@@ -8,9 +8,23 @@
         <%= f.text_field :title, :size=>"50", :placeholder => "タイトルを入力してください" %> <!--投稿タイトル-->
       </div><br />
       <div>
+        <%= f.rich_text_area :code, :placeholder => "コードの内容を入力してください" %> <!--コードの内容-->
+      </div><br /><br />
+      <div>
+        <%= f.text_area :text, :size=>"100*100",  :placeholder => "説明文を入力してください" %> <!--コードの説明文-->
+      </div><br />
+      <div>
+        <%= f.select :genre_id, options_from_collection_for_select(Genre.all, :id, :genre_name), include_blank: true %> <!--ジャンル選択-->
+      </div><br />
+      <div>
         <%= f.submit '投稿する', class: 'btn btn-success' %>
       </div>
     </div>
   </div>
   <% end %>
 </div>
+
+
+
+      <%= f.hidden_field :item_id, :value => @item.id %>
+      <%= f.hidden_field :customer_id, :value => @customer.id %>
