@@ -1,0 +1,9 @@
+<%= search_form_for @q, url: url do |f| %>
+   <%= f.search_field :title_or_body_cont, class: 'form-control', placeholder: '検索ワード' %>
+   <%= f.submit '検索', class: 'btn btn-primary' %>
+<% end %>
+
+<%= render 'search', q: @q, url: boards_path %>
+
+<!--「url: url」と記入することで、どこからでも呼び出せる汎用性の高いパーシャルファイルになる。-->
+<!--「title_or_body_cont」はそのカラムのtitleとbodyに検索した情報を含むレコード全てを取得する。-->

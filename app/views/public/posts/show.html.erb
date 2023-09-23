@@ -1,2 +1,36 @@
 <h1>Public::Posts#show</h1>
 <p>Find me in app/views/public/posts/show.html.erb</p>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div><%= @post.title %></div>
+      <div><%= @post.content %></div>
+      <div><%= @post.text %></div>
+    </div>
+  </div><br />
+  <div>
+    <% if @post.bookmarks_by?(current_customer) %>
+      <p>
+        <%= link_to bookmarks_path(@post), method: :delete do %>
+          ♥<%= @post.bookmarks.count %>
+        <% end %>
+      </p>
+      <% else %>
+      <p>
+        <%= link_to bookmarks_path(@post), method: :post do %>
+          ♡<%= @post.bookmarks.count %>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+  <div class="row">
+    <% if @post.customer == current_customer %>
+      <div class="col-auto"><%= link_to "編集する", edit_post_path(@post.id), class: 'btn btn-sm btn-success' %></div>
+      <div class="col-auto"><%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" %></div>
+    <% else %>
+      <div></div>
+      <div></div>
+    <% end %>
+  </div>
+</div>

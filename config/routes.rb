@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'homes/top' #管理者トップページ
-  end
-
   devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
   }
@@ -20,12 +16,12 @@ Rails.application.routes.draw do
 
   scope module: :public do #会員
     root to: "homes#top" #トップページ用
-    resources :posts, only: [:index, :show, :new, :create, :edit, :update] #投稿機能用
+    resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy] #投稿機能用
     get "/customers/unsubscribe" => "customers#unsubscribe" #退会確認画面へのルーティング
     patch "/customers/withdraw" => "customers#withdraw" #退会処理へのルーティング
     resources :customers, only: [:show, :edit, :update] #会員機能用
     get 'records/index' #投稿履歴機能用
-    resources :bookmarks, only: [:index, :create, :destroy] #ブックマーク機能用
+    resource :bookmarks, only: [:index, :create, :destroy] #ブックマーク機能用
 
   end
 

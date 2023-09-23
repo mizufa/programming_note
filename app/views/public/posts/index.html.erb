@@ -4,11 +4,15 @@
   <div>
     <%= link_to "新規投稿", new_post_path, class: 'btn btn-success' %>
   </div>
+  <% @posts.each do |post_text| %>
   <div class="row">
     <div class="col-auto">
-      <%= @post_texts.each do |post_text| %>
+      <%= link_to post_path(post_text.id) do %>
         <%= post_text.title %>
       <% end %>
+      <%= post_text.genre.genre_name %>
     </div>
   </div>
+  <% end %>
+  <%= paginate @posts %>
 </div>

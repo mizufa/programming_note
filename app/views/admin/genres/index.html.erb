@@ -8,8 +8,10 @@
 
 <% end %>
 
-<th>ジャンル</th>
+<th><strong>ジャンル</strong></th>
 <% @genres.each do |genre| %>
+<div>
 <td><%= genre.genre_name %></td>
+</div>
 <td><%= link_to "編集する", edit_admin_genre_path(genre.id), class: "btn-success" %></td>
 <%end%>

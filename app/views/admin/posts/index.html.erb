@@ -1,1 +1,33 @@
 <h1>Admin::Posts#index</h1>
+
+<div class="container">
+  <div class="row">
+    <h5>投稿一覧</h5>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <table class="table">
+        <thead>
+          <th class="col-1">タイトル</th>
+          <th class="col-1">ジャンル</th>
+          <th class="col-1">会員名</th>
+        </thead>
+        <tbody>
+          <% @posts.each do |post_text| %>
+          <tr>
+            <td>
+              <%= link_to admin_post_path(post_text.id) do %>
+                <%= post_text.title %> <!--投稿タイトル-->
+              <% end %>
+            </td>
+            <td><%= post_text.genre.genre_name %></td><!--ジャンル名-->
+            <td><%= link_to admin_customer_path(post_text.customer.id) do %><%= post_text.customer.name %><% end %></td><!--ユーザー名-->
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= paginate @posts %>
+    </div>
+  </div>
+</div>
