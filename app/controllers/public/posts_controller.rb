@@ -1,7 +1,9 @@
 class Public::PostsController < ApplicationController
 
   def index
-    @posts = Post.page(params[:page])
+    #@posts = Post.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
   end
 
   def show
@@ -35,6 +37,8 @@ class Public::PostsController < ApplicationController
     post_text.update(post_params)
     redirect_to post_path(post_text.id)
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :text, :content, :genre_id, :customer_id)

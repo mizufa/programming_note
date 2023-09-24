@@ -8,22 +8,29 @@
       <div><%= @post.content %></div>
       <div><%= @post.text %></div>
     </div>
-  </div><br />
-  <div>
-    <% if @post.bookmarks_by?(current_customer) %>
-      <p>
-        <%= link_to bookmarks_path(@post), method: :delete do %>
-          ♥<%= @post.bookmarks.count %>
-        <% end %>
-      </p>
-      <% else %>
-      <p>
-        <%= link_to bookmarks_path(@post), method: :post do %>
-          ♡<%= @post.bookmarks.count %>
-        <% end %>
-      </p>
+  </div>
+
+  <div> <!--ブックマーク機能-->
+    <% if @post.customer == current_customer %> <!--投稿者には非表示-->
+      <p></p>
+      <p></p>
+    <% else %>
+      <% if @post.bookmarks_by?(current_customer) %>
+        <p>
+          <%= link_to bookmarks_path(post_id: @post.id), method: :delete do %>
+            ★<%= @post.bookmarks.count %>
+          <% end %>
+        </p>
+        <% else %>
+        <p>
+          <%= link_to bookmarks_path(post_id: @post.id), method: :post do %>
+            ☆<%= @post.bookmarks.count %>
+          <% end %>
+        </p>
+      <% end %>
     <% end %>
   </div>
+
   <div class="row">
     <% if @post.customer == current_customer %>
       <div class="col-auto"><%= link_to "編集する", edit_post_path(@post.id), class: 'btn btn-sm btn-success' %></div>

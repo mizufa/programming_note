@@ -7,4 +7,12 @@ class Post < ApplicationRecord
   def bookmarks_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    ["created_at", "customer_id", "genre_id", "id", "text", "title", "updated_at"]
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    ["bookmarks", "customer", "genre", "rich_text_content"]
+  end
 end
