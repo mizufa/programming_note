@@ -2,15 +2,20 @@
 <p>Find me in app/views/admin/posts/show.html.erb</p>
 
 <div class="container">
-  <div class="row">
-    <div class="col">
-      <div><%= @post.title %></div>
-      <div><%= @post.content %></div>
-      <div><%= @post.text %></div>
-      <div><%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %></div> <!--ユーザーの詳細画面へ移動-->
-    </div>
+  <div class="row justify-content-center">
+    <div><%= @post.title %></div>
+  </div>
+  <div class="row justify-content-center">
+    <div><%= @post.content %></div>
+  </div>
+  <div class="row justify-content-center">
+    <div><%= @post.text %></div>
+  </div>
+  <div class="row justify-content-center">
+    <%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %> <!--ユーザーの詳細画面へ移動-->
   </div><br />
-  <div class="row">
+
+  <div class="row justify-content-center">
     <div class="col-auto"><%= link_to "編集する", edit_post_path(@post.id), class: 'btn btn-sm btn-success' %></div>
     <div class="col-auto"><%= link_to "削除する", post_path(@post.id), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に削除しますか？" %></div>
   </div>

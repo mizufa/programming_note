@@ -12,7 +12,12 @@
         <%= f.email_field :email, :placeholder => "メールアドレス" %>
       </div><br />
       <div>
-        <%= f.submit "更新する", class: 'btn btn-success' %>
+        <%= f.submit "更新する", class: 'btn btn-sm btn-success' %>
+      </div><br />
+      <div>
+        <%= link_to customers_unsubscribe_path do %>
+          <button type="button" class=" btn btn-sm btn-danger">退会</button>
+        <% end %>
       </div>
     </div>
   </div>

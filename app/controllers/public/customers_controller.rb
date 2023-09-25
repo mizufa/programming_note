@@ -14,10 +14,15 @@ class Public::CustomersController < ApplicationController
     redirect_to customer_path(current_customer) #ユーザーの投稿一覧ページへリダイレクト。
   end
 
-  def unsubscribe
+  def unsubscribe #退会確認画面
   end
 
-  def withdraw
+  def withdraw #退会処理
+    @customer = current_customer
+    @customer.update(is_deleted: true)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
   end
 
   private
