@@ -23,13 +23,14 @@ class Public::PostsController < ApplicationController
     post_text = Post.new(post_params)
     #binding.pry
     post_text.save
-    redirect_to records_index_path #投稿履歴画面へ移動
+    redirect_to post_path(post_text.id) #投稿詳細画面へ移動
   end
 
   def destroy
+    customer = current_customer
     post_text = Post.find(params[:id])
     post_text.destroy
-    redirect_to records_index_path #投稿履歴画面へ移動
+    redirect_to customer_path(customer.id) #マイページへ移動
   end
 
   def update

@@ -20,7 +20,6 @@ Rails.application.routes.draw do
     get "/customers/unsubscribe" => "customers#unsubscribe" #退会確認画面へのルーティング
     resources :posts, only: [:index, :show, :new, :create, :edit, :update, :destroy, :search] #投稿機能用
     resources :customers, only: [:show, :edit, :update] #会員機能用
-    get 'records/index' #投稿履歴機能用
     resources :bookmarks, only: [:index] #ブックマーク機能用
     resource :bookmarks, only: [:index, :create, :destroy] #ブックマーク機能用
 

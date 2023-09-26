@@ -5,7 +5,7 @@ class Public::SessionsController < Devise::SessionsController
   before_action :customer_state, only: [:create]
 
   def after_sign_in_path_for(resource)
-    records_index_path #ログイン後、ユーザーの投稿履歴画面へ移動
+    posts_path #ログイン後、投稿一覧画面へ移動
   end
 
   # GET /resource/sign_in
