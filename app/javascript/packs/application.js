@@ -8,6 +8,9 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+import "@rails/actiontext"
+import "trix"
+
 import "jquery";
 import "popper.js";
 import "bootstrap";

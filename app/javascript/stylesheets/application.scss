@@ -1,1 +1,9 @@
-@use '~bootstrap/scss/bootstrap';
+
+
+@import "~bootstrap/scss/bootstrap";
+
+trix-editor {
+  min-height: 20em;
+  max-height: 20em;
+  overflow-y: auto;
+}
