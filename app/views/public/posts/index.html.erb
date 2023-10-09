@@ -14,9 +14,9 @@
   </div>
 
   <% @posts.each do |post_text| %>
-  <div class="row justify-content-center border">
-    <div class="col-auto">
-      <%= link_to post_path(post_text.id) do %>
+  <div class="row m-3 p-5 justify-content-center border">
+    <div class=" col-auto">
+      <%= link_to post_path(post_text.id), class: 'text-dark' do %>
         <%= post_text.title %>
       <% end %>
     </div>
