@@ -1,7 +1,7 @@
 <h1>Public::Posts#new</h1>
 
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <%= form_with model: @post, method: :post do |f| %>
       <div class="form-group">
         <%= f.text_field :title, class: "form-control", :placeholder => "タイトルを入力してください" %> <!--投稿タイトル-->
