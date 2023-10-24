@@ -2,8 +2,8 @@
 
 <div class="container">
   <div class="row justify-content-end">
-    <div class="col-auto"> <!--検索機能-->
-      <%= search_form_for @q do |f| %>
+    <div class="col-auto">
+      <%= search_form_for @q do |f| %><!--検索機能-->
         <%= f.search_field :title_or_text_cont %>
         <%= f.submit %>
       <% end %>

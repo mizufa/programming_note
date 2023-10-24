@@ -2,19 +2,13 @@
 <p>Find me in app/views/public/bookmarks/index.html.erb</p>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <table class="table">
-      <% @bookmarks.each do |bookmark| %>
-      <tbody>
-        <tr>
-          <td>
-            <%= link_to post_path(bookmark.post.id) do %>
-              <%= bookmark.post.title %>
-            <% end %>
-          </td>
-        </tr>
-      </tbody>
-      <% end %>
-    </table>
-  </div>
+    <% @bookmarks.each do |bookmark| %>
+      <div class="row m-3 p-5 justify-content-center border">
+        <div class=" col-auto">
+          <%= link_to post_path(bookmark.post.id), class: 'text-dark' do %>
+            <%= bookmark.post.title %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
 </div>
