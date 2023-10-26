@@ -14,13 +14,11 @@
   </div>
 
   <% @posts.each do |post_text| %>
-  <div class="row m-3 justify-content-center">
-    <div class="row w-100 m-3 p-5 justify-content-center btn btn-outline-secondary">
-        <%= link_to post_path(post_text.id), class: 'text-dark' do %>
-          <%= post_text.title %>
-        <% end %>
+    <div class="row justify-content-center">
+      <%= link_to post_path(post_text.id), class: 'col w-100 m-3 p-5 text-center border' do %>
+        <p class="text-dark"><%= post_text.title %></p>
+      <% end %>
     </div>
-  </div>
   <% end %>
 
   <%= paginate @posts %>
