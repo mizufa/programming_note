@@ -28,7 +28,7 @@
       </div>
       <% @posts.each do |content| %>
         <div class="mb-3 text-center border">
-          <%= link_to post_path(content.id), class: 'text-dark' do %>
+          <%= link_to post_path(content.id), class: 'text-dark text-decoration-none' do %>
             <%= content.title %>
           <% end %>
         </div>
