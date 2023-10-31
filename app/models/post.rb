@@ -5,7 +5,7 @@ class Post < ApplicationRecord
   has_rich_text :content
 
   def bookmarks_by?(customer)
-    bookmarks.exists?(customer_id: customer.id)
+    bookmarks.exists?(customer_id: customer_id)
   end
 
   def self.ransackable_attributes(auth_object = nil)

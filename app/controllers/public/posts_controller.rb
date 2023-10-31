@@ -21,7 +21,6 @@ class Public::PostsController < ApplicationController
 
   def create
     post_text = Post.new(post_params)
-    #binding.pry
     post_text.save
     redirect_to post_path(post_text.id) #投稿詳細画面へ移動
   end

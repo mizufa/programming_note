@@ -2,18 +2,31 @@
 <p>Find me in app/views/admin/posts/show.html.erb</p>
 
 <div class="container">
-  <div class="row justify-content-center">
-    <div><%= @post.title %></div>
+  <div class="row m-3"><!--投稿タイトル-->
+    <h4><strong><%= @post.title %></strong></h4>
   </div>
-  <div class="row justify-content-center">
-    <div><%= @post.content %></div>
+  <div class="row m-3 p-5 justify-content-center border"><!--投稿内容-->
+    <div class="col">
+      <div><%= @post.content %></div>
+    </div>
   </div>
-  <div class="row justify-content-center">
-    <div><%= @post.text %></div>
+  <div class="m-4"><!--投稿コメント-->
+    <div class="row mb-0">
+      <h5><strong>＜コメント＞</strong></h5><br />
+    </div>
+    <div class="row mt-0">
+      <%= @post.text %>
+    </div>
   </div>
-  <div class="row justify-content-center">
-    <%= link_to admin_customer_path(@post.customer.id) do %><%= @post.customer.name %><% end %> <!--ユーザーの詳細画面へ移動-->
-  </div><br />
+
+  <div class="m-4">
+    <div class="row mb-0"><!--投稿者リンク-->
+      <h5><strong>＜投稿者＞</strong></h5><br />
+    </div>
+    <div class="row mt-0">
+      <%= link_to admin_customer_path(@post.customer.id), class: "text-dark" do %><%= @post.customer.name %><% end %> <!--ユーザーの詳細画面へ移動-->
+    </div>
+  </div>
 
   <div class="row justify-content-center">
     <div class="col-auto"><%= link_to "編集する", edit_post_path(@post.id), class: 'btn btn-sm btn-success' %></div>

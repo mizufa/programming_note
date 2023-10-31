@@ -1,6 +1,7 @@
 class Admin::PostsController < ApplicationController
   def index
-    @posts = Post.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.page(params[:page])
   end
 
   def show

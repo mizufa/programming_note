@@ -2,16 +2,15 @@
 <p>Find me in app/views/public/posts/show.html.erb</p>
 
 <div class="container">
-  <div class="row m-3">
+  <div class="row m-3"><!--投稿タイトル-->
     <h4><strong><%= @post.title %></strong></h4>
   </div>
-  <div class="row m-3 p-5 justify-content-center border">
+  <div class="row m-3 p-5 justify-content-center border"><!--投稿内容-->
     <div class="col">
       <div><%= @post.content %></div>
     </div>
   </div>
-
-  <div class="m-4">
+  <div class="m-4"><!--投稿コメント-->
     <div class="row mb-0-">
       <h5><strong>＜コメント＞</strong></h5><br />
     </div>
