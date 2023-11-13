@@ -4,9 +4,9 @@
   </div>
 
   <div class="row justify-content-center">
-    <table class="table-sm table-borderless">
-      <tbody>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <table class="table-sm table-borderless">
+        <tbody>
           <tr class="field">
             <th><%= f.label :'メールアドレス' %></th>
             <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
@@ -19,9 +19,9 @@
             <th></th>
             <td><%= f.submit "ログイン" %></td>
           </tr>
-        <% end %>
-        <th><%= render "public/shared/links" %></th>
-      </tbody>
-    </table>
+          <th><%= render "public/shared/links" %></th>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
